@@ -1,0 +1,39 @@
+getwd()
+setwd("D:/mayank/mayank.r")
+data <- read.csv("data.csv")
+print(data)
+data$total <- data$Price * data$Qty
+print(data)
+# bar chart.
+barplot(data$total,names.arg = data$Company, col = "green")
+# 6. PIE CHART
+pie(data$total,labels = data$Company)
+# 7. LINE CHART
+plot(data$Qty,type="l",col="blue")
+# 8. HISTOGRAM
+hist(data$Qty,breaks = 3)
+# 9. SUMMARY
+summary(data)
+
+getwd()
+setwd("D:/mayank/R.programing")
+
+# 2. Read CSV
+my_data <- read.csv("employee_data.csv")
+print(my_data)
+
+# 3. Top Earner
+top_earner <- subset(my_data, salary == max(my_data$salary))
+print(top_earner)
+
+# 4. Salary > 700
+good_salary <- subset(my_data, salary > 700)
+print(good_salary)
+
+# 5. IT Staff
+it_staff <- subset(my_data, dept == "IT")
+print(it_staff)
+
+# 6. Rich IT Staff
+rich_it_staff <- subset(my_data, salary > 500 & dept == "IT")
+print(rich_it_staff)
